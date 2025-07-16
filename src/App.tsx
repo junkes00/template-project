@@ -1,33 +1,19 @@
-import { useState } from 'react';
-import './App.css';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+import { ThemeProvider } from "./app/context/theme-context";
+import { ToggleTheme } from "./ui/components/toggle-theme";
 
 export function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <ThemeProvider>
+      <div className="flex max-w-lg mx-auto mt-20 items-center justify-between">
+        <div>
+          <h1>Template project</h1>
+          <small>A tamplate to create new projects using Vite, Shadcn and Tailwind</small>
+        </div>
+
+        <div>
+          <ToggleTheme />
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount(count => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </ThemeProvider>
   );
 }
