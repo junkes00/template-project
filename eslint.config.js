@@ -29,7 +29,6 @@ export default defineConfig([
 
   {
     plugins: {
-      "react-hooks": reactHooks,
       "@stylistic": stylistic,
     },
     rules: {
