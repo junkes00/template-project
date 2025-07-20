@@ -61,10 +61,13 @@ export default defineConfig([
       "@stylistic/jsx-sort-props": [
         "error",
         {
+          noSortAlphabetically: true,
           ignoreCase: true,
+          callbacksLast: true,
           shorthandFirst: true,
           multiline: "last",
           reservedFirst: ["key"],
+          reservedLast: ["className"],
         },
       ],
       "@typescript-eslint/naming-convention": [
