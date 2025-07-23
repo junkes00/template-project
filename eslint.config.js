@@ -1,5 +1,6 @@
 import js from "@eslint/js";
 import stylistic from "@stylistic/eslint-plugin";
+import pluginQuery from "@tanstack/eslint-plugin-query";
 import prettier from "eslint-config-prettier/flat";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import pluginReact from "eslint-plugin-react";
@@ -16,6 +17,7 @@ export default defineConfig([
   ...tseslint.configs.stylistic,
   pluginReact.configs.flat.recommended,
   pluginReact.configs.flat["jsx-runtime"],
+  pluginQuery.configs["flat/recommended"],
   reactHooks.configs["recommended-latest"],
   reactRefresh.configs.vite,
   jsxA11y.flatConfigs.recommended,
@@ -45,21 +47,22 @@ export default defineConfig([
     extends: ["js/recommended"],
     rules: {
       "no-console": "warn",
+      "no-unused-vars": "warn",
       "linebreak-style": ["error", "windows"],
       "react/button-has-type": "error",
       "no-shadow": "error",
       "react/jsx-no-bind": "warn",
       "react/react-in-jsx-scope": "off",
       "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "error",
+      "react-hooks/exhaustive-deps": "warn",
       "react-refresh/only-export-components": "warn",
-      "@typescript-eslint/no-unused-vars": "error",
+      "@typescript-eslint/no-unused-vars": "warn",
       "@stylistic/indent": ["error", 2],
       "@stylistic/jsx-one-expression-per-line": "error",
       "@stylistic/no-multiple-empty-lines": "error",
       "@stylistic/comma-dangle": "error",
       "@stylistic/jsx-sort-props": [
-        "error",
+        "warn",
         {
           noSortAlphabetically: true,
           ignoreCase: true,
